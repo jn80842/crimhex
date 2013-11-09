@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+  <title>CrimHex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="crimhex.css" rel="stylesheet" media="screen">
+  </head>
+  <style>
+
+
+
+
+
+</style>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">CrimHex</a>
+                    <ul class="nav">
+            <li class="active"><a href="drawbubbles.html">Add Specs</a></li>
+            <li><a href="ambiguity.html">Resolve Ambiguity</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="control-group error">
+        <label class="control-label" id="error-text"></label>
+      </div>
+      <div class="row-fluid">
+        <div class="span5">
+          <div class="hero-unit">
+            <h3>Grammar</h3>
+            <textarea id="user-grammar" style="width:100%" rows="10">%ignore /[ \t\v\f\r\n]+/
+
+%%
+
+E -> E '+' E | E '*' E | E '-' E | '-' E | Num;
+
+Num -> /[0-9]+/;
+</textarea>
+          </div>
+          <div class="hero-unit">
+            <h4>Notes on the Demo</h4>
+            <span><ul>
+              <li>The grammar is only here as an example; editing it has no effect on the specs.</li>
+              <li>Tokens are formed by splitting on whitespace, not truly tokenizing based on the rules of the grammar.</li>
+              <li>The specs aren't really saved.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="span7">
+          <div class="row-fluid">
+            <div class="hero-unit">
+                            <a id="done"></a>
+              <h3>Add a spec</h3>
+
+              <div class="alert alert-danger" id="not-parse-alert"></div>
+              <div class="alert alert-success" id="parse-done-alert"></div>
+              <textarea id="user-input" style="width:100%">1 + 1 * 2</textarea>
+              <a class="btn pull-right btn-success" id="parse" href="#">Should parse</a>
+              <a class="btn pull-right btn-danger" id="failparse" href="#">Should not parse</a>
+            </div>
+            <div class="hero-unit" id="edit-parse">
+              <h3 id="parse-header">Edit Parse</h3>
+              <span>To add a bubble, click the first and last token in the range you want to group. To remove a bubble, click any token that belongs to it.</span>
+
+                <div id="parse-bubbles">
+                  <div class="start_symbol">
+
+                  </div>
+                </div>
+                <button type="button" class="btn pull-right btn-inverse" id="add-spec" href="#done">Done</button>
+                <button type="button" class="btn pull-right btn-inverse highlightBtn" id="remove-bubble" disabled="disabled">Remove bubble</button>
+                <button type="button" class="btn pull-right btn-inverse highlightBtn" id="clear-highlights" disabled="disabled">Clear highlighting</button>
+                <button type="button" class="btn pull-right btn-inverse highlightBtn" id="add-bubble" disabled="disabled">Add bubble</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <script src="./jquery-1.9.1.min.js"></script>
+        <script src="./bootstrap.mim.js"></script>
+         <script src="./drawbubbles.js"></script>
+
+  </body>
+</html>

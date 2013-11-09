@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+  <title>CrimHex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="crimhex.css" rel="stylesheet" media="screen">
+  </head>
+  <style>
+
+</style>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">CrimHex</a>
+                    <ul class="nav">
+            <li><a href="drawbubbles.html">Add Specs</a></li>
+            <li class="active"><a href="ambiguity.html">Resolve Ambiguity</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="control-group error">
+        <label class="control-label" id="error-text"></label>
+      </div>
+      <div class="row-fluid">
+        <div class="span5">
+          <div class="hero-unit">
+            <h3>Grammar</h3>
+            <span id="user-grammar">
+              <span id="ignore">
+                <p>%ignore /[ \t\v\f\r\n]+/</p>
+
+              </span>
+              <p id="boundary">%%</p>
+              <div id="rules">
+                <div class="nohighlight bkgdMidnightblue E1"><p>E -> E '*' E </p></div>
+<div><p>| E '+' E </p></div>
+<div><p>| E '-' E </p></div>
+<div><p>| '-' E </p></div>
+<div class="nohighlight bkgdMidnightblue E2"><p>| Num;</p></div>
+
+<div class="nohighlight bkgdPomegranate Num"><p>Num -> /[0-9]+/;</p></div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="span7">
+          <div class="row-fluid">
+
+            <div class="hero-unit" id="edit-parse">
+              <h3 id="parse-header">Choose Parse</h3>
+              <h3 id="resolved">Resolved</h3>
+              <ul class="nav nav-pills pull-right">
+                <li class="active"><a href="#" id="show-simple">View simplest parse</a></li>
+                <li><a href="#" id="show-full">View full parse</a></li>
+              </ul>
+              <br />
+
+                <div id="parse-bubbles">
+
+                  <div id="full-parse">
+                    <input type="radio" name="parse" value="assocLeft" />
+                  <div class="start_symbol hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="left" data-toggle="tooltip" data-title="E -> Num" data-rule="E2">
+                    <span class="bubblePomegranate bubble hasTooltip" data-placement="bottom" data-toggle="tooltip" data-title="Num -> /[0-9]+/" data-rule="Num"><span class="token">1</span></span>
+                    </span>
+                    <span class="token">*</span>
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="left" data-toggle="tooltip" data-title="E -> Num" data-rule="E2">
+                    <span class="bubblePomegranate bubble hasTooltip" data-placement="bottom" data-toggle="tooltip" data-title="Num -> /[0-9]+/" data-rule="Num"><span class="token">1</span></span>
+                    </span>
+                    </span>
+                    <span class="token">*</span>
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="left" data-toggle="tooltip" data-title="E -> Num" data-rule="E2">
+                    <span class="bubblePomegranate bubble hasTooltip" data-placement="bottom" data-toggle="tooltip" data-title="Num -> /[0-9]+/" data-rule="Num"><span class="token">2</span></span>
+                    </span>
+                  </div>
+                  <hr />
+                  <input type="radio" name="parse" value="assocRight" />
+                    <div class="start_symbol hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="left" data-toggle="tooltip" data-title="E -> Num" data-rule="E2">
+                    <span class="bubblePomegranate bubble hasTooltip" data-placement="bottom" data-toggle="tooltip" data-title="Num -> /[0-9]+/" data-rule="Num"><span class="token">1</span></span>
+                    </span>
+                    <span class="token">*</span>
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="left" data-toggle="tooltip" data-title="E -> Num" data-rule="E2">
+                    <span class="bubblePomegranate bubble hasTooltip" data-placement="bottom" data-toggle="tooltip" data-title="Num -> /[0-9]+/" data-rule="Num"><span class="token">1</span></span>
+                    </span>
+                    <span class="token">*</span>
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="left" data-toggle="tooltip" data-title="E -> Num" data-rule="E2">
+                    <span class="bubblePomegranate bubble hasTooltip" data-placement="bottom" data-toggle="tooltip" data-title="Num -> /[0-9]+/" data-rule="Num"><span class="token">2</span></span>
+                    </span>
+                    </span>
+                  </div>
+                </div>
+                <div id="simplest-parse">
+                  <input type="radio" name="parse" value="assocLeft" />
+                  <div class="start_symbol hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="token">1</span>
+                    <span class="token">*</span>
+                    <span class="token">1</span>
+                    </span>
+                    <span class="token">*</span>
+                    <span class="token">2</span>
+                  </div>
+                  <hr />
+                  <input type="radio" name="parse" value="assocRight" />
+                  <div class="start_symbol hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="token">1</span>
+                    <span class="token">*</span>
+                    <span class="bubbleMidnightblue bubble hasTooltip" data-placement="top" data-toggle="tooltip" data-title="E -> E * E" data-rule="E1">
+                    <span class="token">1</span>
+                    <span class="token">*</span>
+                    <span class="token">2</span>
+                  </span>
+                  </div>
+                </div>
+                </div>
+                <button type="button" class="btn pull-right btn-inverse" id="resolve">Resolve</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <script src="./jquery-1.9.1.min.js"></script>
+        <script src="./bootstrap.min.js"></script>
+        <script src="./ambiguity.js"></script>
+
+  </body>
+</html>

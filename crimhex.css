@@ -1,0 +1,101 @@
+#user-grammar {
+  font-family: courier;
+  width: 100%;
+}
+
+.btn {
+  margin: 3px;
+}
+
+#parse-bubbles {
+  font-size: 24pt;
+  padding: 25px;
+  word-wrap: break-word;
+  line-height: 50px;
+}
+
+.bubble {
+  padding: 2px;
+  margin: 2px;
+  border-radius: 20px;
+  border: solid;
+  border-width: 5px;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.start_symbol {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  border: solid;
+  border-width: 5px;
+  border-color: #2c3e50; <!-- midnight blue -->
+}
+
+.bubbleMidnightblue {
+  border-color: #2c3e50;
+}
+
+.bubblePomegranate {
+  border-color: #c0392b; 
+}
+
+.bubbleNephritis {
+  border-color: #27ae60; 
+}
+
+.bubbleBelizehole {
+  border-color: #2980b9;
+}
+
+.bubbleWisteria {
+  border-color: #8e44ad;
+}
+
+.bubbleGreensea {
+  border-color: #16a085;
+}
+
+.bubbleSunflower {
+  border-color: #f1c40f;
+}
+
+.bubbleOrange {
+  border-color: #f39c12;
+}
+
+#rules span {
+  margin: 2px;
+  padding: 2px;
+}
+
+.bkgdMidnightblue {
+  background-color: #547799;
+}
+
+.bkgdPomegranate {
+  background-color: #E64332;
+}
+
+.bkgdSunflower {
+  background-color: #f1c40f;
+}
+
+.nohighlight {
+  background-color: #eee;
+}
+
+.token {
+  display: inline-block;
+  border-radius: 15px;
+  padding:  4px 12px;
+  margin: 5px;
+  background-color: #bdc3c7; <!-- silver -->
+}
+
+.highlighted {
+  font: #ffffff;
+  background-color: #7f8c8d; <!-- asbestos -->
+}
